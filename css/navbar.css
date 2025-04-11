@@ -24,12 +24,10 @@
     position: relative;
   }
   
-  /* Logo */
   .logo img {
    width: 120px;
   }
   
-  /* Main Navigation */
   .main-nav ul {
     display: flex;
     list-style: none;
@@ -55,7 +53,6 @@
     color: #CCA471;
   }
 
-  /* Icons */
   .nav-icons {
     display: flex;
     align-items: center;
@@ -93,7 +90,7 @@
     justify-content: center;
   }
   
-  /* Search Box */
+
   .search-box {
     position: absolute;
     top: 100%;
@@ -128,7 +125,7 @@
   }
   
 
-  /* Cart Count ki positioning thik karein */
+  
 .cart-count {
     position: absolute;
     top: 7px;  
@@ -199,7 +196,7 @@
     bottom: -8px;
   }
   
-  /* Responsive Styles */
+  /* Responsive  */
   @media (max-width: 768px) {
     .mobile-menu-toggle {
       display: block;
@@ -245,7 +242,6 @@
        }
   }
 
-  /* Search Items */
 .search-item {
   display: flex;
   align-items: center;

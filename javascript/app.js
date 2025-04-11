@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile Menu Toggle
+ 
   const mobileToggle = document.querySelector('.mobile-menu-toggle');
   const mainNav = document.querySelector('.main-nav');
 
@@ -7,19 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     mainNav.classList.toggle('active');
     mobileToggle.classList.toggle('active');
     document.querySelector('.overlay').classList.toggle('active');
-  });
-
-  // Dropdowns
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(dropdown => {
-    const link = dropdown.querySelector('a');
-    
-    link.addEventListener('click', function(e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdown.classList.toggle('active');
-      }
-    });
   });
 
   // Search Toggle
@@ -35,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Cart Toggle
   const cartToggle = document.querySelector('.cart-toggle');
   const cartModal = document.querySelector('.cart-modal');
   const closeCart = document.querySelector('.close-cart');
@@ -56,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Close when clicking outside
+  
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.search-box') && !e.target.closest('.search-toggle')) {
       searchBox.classList.remove('active');
@@ -78,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Search Functionality (Mock)
+  
   const searchInput = document.querySelector('.search-box input');
   const searchResults = document.querySelector('.search-results');
   
@@ -91,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      // Mock search results
+   
       const mockResults = [
         'Analog Numeral',
         'Classical Numeral',
@@ -116,12 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
     ).join('');
   }
 
-  // Cart Functionality (Mock)
-  const cartItems = document.querySelector('.cart-items');
   
-  // Example: Add to cart functionality
+  const cartItems = document.querySelector('.cart-items');
+
   function addToCart(product) {
-    // In a real app, you would update this from your product pages
+   
     const cartItem = document.createElement('div');
     cartItem.className = 'cart-item';
     cartItem.innerHTML = `
@@ -147,4 +132,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//   sliderrrrrrrrrrrrrrrrrrrrrrrr
