@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+ <!-- custom stylesheet link  -->
+<link rel="stylesheet" href="./css/navbar.css">
+<link rel="stylesheet" href="./css/home.css">
+<link rel="stylesheet" href="./css/shop.css">
+<link rel="stylesheet" href="./css/contact.css">
+<link rel="stylesheet" href="./css/footer.css">
+
+ <!-- Font awesome cdn  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- google font -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Special+Gothic+Expanded+One&display=swap');
+ </style>
+
+<!-- bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+    <!-- navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <!-- Mobile Toggle -->
+            <button class="mobile-menu-toggle">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href=""><img src="./assets/home assets/logo_1.webp" alt=""></a>
+            </div>
+
+            <!-- Main Nav -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="./html/shop.html">Shop </a></li>
+                    <li><a href="#slidetoaboutus">About Us</a></li>
+                    <li><a href="#contactme">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Icons -->
+            <div class="nav-icons">
+                <!-- Search -->
+                <div class="search-container">
+                    <button class="search-toggle"><i class="fas fa-search"></i></button>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <div class="search-results"></div>
+                    </div>
+                </div>
+
+                <!-- Profile -->
+                <a href="#" class="profile-icon"><i class="fas fa-user"></i></a>
+
+                <!-- Cart -->
+                <div class="cart-container">
+                    <button class="cart-toggle">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- navbar completed -->
+
+    <!-- slider hero section  -->
+    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-inner ">
+            <div class="carousel-item active">
+                <img src="./assets/home assets/slider img 1" class="d-block w-100 img-fluid " alt="...">
+                <div class="slide-content">
+                    <h1>Gorgeous</h1>
+                    <h2>Exclusive of Sales Tax</h2>
+                    <p>The watch bracelet gives a much far colder personality. Dress watch style.
+                       Swiss made luxury watch. Stainless steel case with a brown leather strap.
+                       Scratch resistant sapphire crystal.</p>
+                    <h3><span class="caro_start">Starting</span> @ $100.00</h3>
+                    <a href="#explore-me"><button>EXPLORE</button></a>
+                  </div>
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/home assets/slider img 2.webp" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="./assets/home assets/slider img 3.webp" class="d-block w-100" alt="...">
+                <div class="slide-content">
+                    <h1>Alertzy</h1>
+                    <h2>Exclusive of Sales Tax</h2>
+                    <p>Expanding the offering is the choice between a leather strap or a metal bracelet, bringing the total new look.
+                        Black tone stainless steel case with a black ruber strap.scratch free sapphire crystal
+                    </p>
+                    <h3><span class="caro_start">Starting</span> @ $100.00</h3>
+                    <a href="#explore-me"><button>EXPLORE</button></a>
+                  </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- herooo section k neechay wala scetion -->
+    <section class="flash-sale-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="explore-me">EXPLORE SERVICES</h2>
+            </div>
+            
+            <div class="row">
+                <!-- Sale Item 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="sale-item">
+                        <div class="sale-badge">Flash Sale</div>
+                        <img src="./assets/home assets/grid banner 1.webp" class="sale-img" alt="Pen's Watch">
+                        <div class="sale-body">
+                            <h5 class="sale-title">Men's Watch</h5>
+                            <div class="sale-category">Luxury Collection</div>
+                            <div class="sale-price">25% Discount</div>
+                           <a href="./html/shop.html"> <button class="btn btn-dark w-100">Shop Now</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sale Item 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="sale-item">
+                        <div class="sale-badge">Flash Sale</div>
+                        <img src="./assets/home assets/grid img 3.webp" class="sale-img" alt="Women's Watch">
+                        <div class="sale-body">
+                            <h5 class="sale-title">Couple's Watch</h5>
+                            <div class="sale-category">  Matching Set</div>
+                            <div class="sale-price">40% Discount</div>
+                            <a href="./html/shop.html"> <button class="btn btn-dark w-100">Shop Now</button></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sale Item 3 -->
+                <div class="col-lg-4 col-md-6 mb-4 center-on-mobile mx-auto text-center">
+                    <div class="sale-item">
+                        <div class="sale-badge">Flash Sale</div>
+                        <img src="./assets/home assets/grid img 2.webp" class="sale-img" alt="Couple's Watch">
+                        <div class="sale-body">
+                            <h5 class="sale-title"> Women's Watch </h5>
+                            <div class="sale-category"> Elegant Series</div>
+                            <div class="sale-price">30% Discount</div>
+                            <a href="./html/shop.html"> <button class="btn btn-dark w-100">Shop Now</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+ <!-- section completed -->
+
+ <!-- about us section started -->
+ <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content" id="slidetoaboutus">
+        <h1>ABOUT US</h1>
+        <div class="breadcrumbs">
+            <a href="#carouselExampleRide">Home</a>
+            <span>/</span>
+            <a href="./html/shop.html">Products</a>
+        </div>
+    </div>
+</section>
+
+<section class="journey-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center section-title">
+                <h1>Our Journey So Far</h1>
+            </div>
+        </div>
+        
+        <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2010</div>
+                <div class="timeline-content">
+                    <h3>Company Founded</h3>
+                    <p>Started with a small team of 5 people in a shared office space with a vision to revolutionize the watch market.</p>
+                    <div class="text-primary">
+                        <i class="fas fa-users me-2"></i>
+                        <small>5 Employees</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2012</div>
+                <div class="timeline-content">
+                    <h3>First Major Client</h3>
+                    <p>Secured our first Fortune 500 client, marking our entry into the big league.</p>
+                    <div class="text-primary">
+                        <i class="fas fa-trophy me-2"></i>
+                        <small>Industry Recognition</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2015</div>
+                <div class="timeline-content">
+                    <h3>Expansion</h3>
+                    <p>Opened offices in 3 new countries and grew our team to 50 employees worldwide.</p>
+                    <div class="text-primary">
+                        <i class="fas fa-globe me-2"></i>
+                        <small>International Presence</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2018</div>
+                <div class="timeline-content">
+                    <h3>Product Launch</h3>
+                    <p>Launched our flagship product that became the industry standard within 6 months.</p>
+                    <div class="text-primary">
+                        <i class="fas fa-rocket me-2"></i>
+                        <small>Market Leader</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 5 -->
+            <div class="timeline-item">
+                <div class="timeline-date">2023</div>
+                <div class="timeline-content">
+                    <h3>Current Status</h3>
+                    <p>Now serving 500+ clients worldwide with a team of 200+ professionals across 10 countries.</p>
+                    <div class="text-primary">
+                        <i class="fas fa-chart-line me-2"></i>
+                        <small>Continued Growth</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about us section completed -->
+
+<!-- Contact us section started -->
+ 
+<section style="background-color: #030d1d">
+<div class="contact-section" id="contactme">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2 class="section-titleC" class="text-white">Get in Touch</h2>
+            <p class="text-white">Have questions or feedback? We'd love to hear from you!</p>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h5 class="text-white">Our Office</h5>
+                        <p class="text-white">123 Tech Park, Karachi<br>Pakistan</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h5 class="text-white">Email Us</h5>
+                        <p class="text-white">support@timeeze.com<br>sales@timeeze.com</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h5 class="text-white">Call Us</h5>
+                        <p class="text-white">+92 300 1234567<br>+92 21 1234567</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5 class="text-white">Working Hours</h5>
+                        <p class="text-white">Monday - Friday<br>9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6 mt-4 mt-lg-0">
+            <h2 class="section-titleC">Send Us a Message</h2>
+            <form>
+                <input type="text" class="form-control" placeholder="Your Name" required>
+                <input type="email" class="form-control" placeholder="Your Email" required>
+                <input type="text" class="form-control" placeholder="Subject">
+                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-timeeze mt-3">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="mt-5">
+        <h2 class="section-titleC">Find Us on Map</h2>
+        <div class="map-container">
+            <!-- Embedded Google Map -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.490187415006!2d67.02885931500078!3d24.81472288407989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33c5365ff841f%3A0x27a8d4c5c7d7f8e5!2sTech%20Zone%20Karachi!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-columns">
+            <!-- Column 1: Help -->
+            <div class="footer-column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Payments</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Cancellation & Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Report Infringement</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 2: Support -->
+            <div class="footer-column">
+                <h3>Customer Support</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Returns Center</a></li>
+                    <li><a href="#">Buying Guide</a></li>
+                    <li><a href="#">How to Complain</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Information -->
+            <div class="footer-column">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 4: Address -->
+            <div class="footer-column">
+                <h3>Our Store</h3>
+                <ul>
+                    <li>123 Shopping Street</li>
+                    <li>E-commerce City</li>
+                    <li>PIN 560001</li>
+                    <li>India</li>
+                    <li>Phone: +91 9876543210</li>
+                    <li>Email: info@example.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 YourStoreName. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+         
+
+     <!-- custom js link -->
+    <script src="./javascript/app.js"></script>
+
+    
+    <!-- boootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+

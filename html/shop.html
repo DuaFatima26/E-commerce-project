@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+<!-- custom stylesheet link  -->
+<link rel="stylesheet" href="../css/shop.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/footer.css">
+
+<!-- Font awesome cdn  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- google font -->
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Special+Gothic+Expanded+One&display=swap');
+</style>
+
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-container">
+            <!-- Mobile Toggle -->
+            <button class="mobile-menu-toggle">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href=""><img src="../assets/logo_1.webp" alt=""></a>
+            </div>
+
+            <!-- Main Nav -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Shop </a></li>
+                    <li><a href="../index.html#slidetoaboutus">About</a></li>
+                    <li><a href="../index.html#contactme">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Icons -->
+            <div class="nav-icons">
+                <!-- Search -->
+                <div class="search-container">
+                    <button class="search-toggle"><i class="fas fa-search"></i></button>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <div class="search-results"></div>
+                    </div>
+                </div>
+
+                <!-- Profile -->
+                <a href="#" class="profile-icon"><i class="fas fa-user"></i></a>
+ 
+                <!-- cart  -->
+                <div class="nav-cart" id="nav-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="nav-cart-count">0</span>
+                  </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- heroooooooo section -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>COLLECTION</h1>
+        <div class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="#product_scroll">Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- heroooooooooooooo section completed -->
+
+ <h2 class="mens-heading" id="product_scroll"><span>M</span>ENS COLLECTION</h2>  
+ <!-- PRODUCTS -->
+ <div class="products">
+    <!-- Product 1 -->
+    <div class="product">
+      <div class="image-container">
+        <img src="../assets/shopassests/product-1.jpg" alt="Smartphone">
+      </div>
+      <div class="product-details" >
+        <div class="product-name">Golden Automatic</div>
+        <div class="product-price">₹15,999</div>
+        <div class="stars">★★★★★</div>
+        <button class="add-to-cart" 
+                data-id="1" 
+                data-name="Golden Automatic" 
+                data-price="15999" 
+                data-image="../assets/shopassests/product-1.jpg">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product">
+      <div class="image-container">
+        <img src="../assets/shopassests/product-2.jpg" alt="Headphones">
+      </div>
+      <div class="product-details">
+        <div class="product-name">Platinum Numeral</div>
+        <div class="product-price">₹2,499</div>
+        <div class="stars">★★★★★</div>
+        <button class="add-to-cart" 
+                data-id="2" 
+                data-name="Platinum Numeral" 
+                data-price="2499" 
+                data-image="../assets/shopassests/product-2.jpg">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- product 3 -->
+    <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product-3 jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Black Numeral</div>
+          <div class="product-price">₹2,299</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="3" 
+                  data-name="Black Numeral" 
+                  data-price="2299" 
+                  data-image="../assets/shopassests/product-3 jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      
+    <!-- product 4 -->
+      <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product 4.jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Classic Roman</div>
+          <div class="product-price">₹3,000</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="4" 
+                  data-name="Classic Roman" 
+                  data-price="3000" 
+                  data-image="../assets/shopassests/product 4.jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      
+    <!-- product 5 -->
+      <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product-5.jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Golden Classical</div>
+          <div class="product-price">₹22,00</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="5" 
+                  data-name="Golden Classical" 
+                  data-price="2200" 
+                  data-image="../assets/shopassests/product-5.jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      
+    <!-- product 6 -->
+      <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product-6.jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Classical Numeral</div>
+          <div class="product-price">₹6,700</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="6" 
+                  data-name="Classical Numeral" 
+                  data-price="6700" 
+                  data-image="../assets/shopassests/product-6.jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      
+    <!-- product 7 -->
+      <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product-7.jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Dial Numeral</div>
+          <div class="product-price">₹9,700</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="7" 
+                  data-name="Dial Numeral" 
+                  data-price="9700" 
+                  data-image="../assets/shopassests/product-7.jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+         <!-- product 8 -->
+         <div class="product">
+            <div class="image-container">
+              <img src="../assets/shopassests/product-8.jpg" alt="Headphones">
+            </div>
+            <div class="product-details">
+              <div class="product-name">Analog Numeral</div>
+              <div class="product-price">₹10,000</div>
+              <div class="stars">★★★★★</div>
+              <button class="add-to-cart" 
+                      data-id="8" 
+                      data-name="Analog Numeral" 
+                      data-price="10000" 
+                      data-image="../assets/shopassests/product-7.jpg">
+                Add to Cart
+              </button>
+            </div>
+        </div>
+  </div>
+
+  <!-- MENS COLLECTION COMPLETED HERE -->
+
+  <!-- WOMENS SECTION -->
+
+  <h2 class="mens-heading"><span>w</span>OMENS COLLECTION</h2>  
+  <div class="products">
+    <!-- Product 1 -->
+    <div class="product">
+      <div class="image-container">
+        <img src="../assets/shopassests/product-1.jpg" alt="Smartphone">
+      </div>
+      <div class="product-details">
+        <div class="product-name">Smartphone</div>
+        <div class="product-price">₹15,999</div>
+        <div class="stars">★★★★★</div>
+        <button class="add-to-cart" 
+                data-id="9" 
+                data-name="Smartphone" 
+                data-price="15999" 
+                data-image="../assets/shopassests/product-1.jpg">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product">
+      <div class="image-container">
+        <img src="../assets/shopassests/product-2.jpg" alt="Headphones">
+      </div>
+      <div class="product-details">
+        <div class="product-name">Wireless Headphones</div>
+        <div class="product-price">₹2,499</div>
+        <div class="stars">★★★★★</div>
+        <button class="add-to-cart" 
+                data-id="10" 
+                data-name="Wireless Headphones" 
+                data-price="2499" 
+                data-image="../assets/shopassests/product-2.jpg">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- product 3 -->
+    <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product-3 jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Wireless Headphones</div>
+          <div class="product-price">₹2,299</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="11" 
+                  data-name="Wireless Headphones" 
+                  data-price="2299" 
+                  data-image="../assets/shopassests/product-3 jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      
+    <!-- product 4 -->
+      <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product 4.jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Wireless Headphones</div>
+          <div class="product-price">₹3,000</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="12" 
+                  data-name="Wireless Headphones" 
+                  data-price="3000" 
+                  data-image="../assets/shopassests/product 4.jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      
+    <!-- product 5 -->
+      <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product-5.jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Wireless Headphones</div>
+          <div class="product-price">₹22,00</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="13" 
+                  data-name="Wireless Headphones" 
+                  data-price="2200" 
+                  data-image="../assets/shopassests/product-5.jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      
+    <!-- product 6 -->
+      <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product-6.jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Wireless Headphones</div>
+          <div class="product-price">₹6,700</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="14" 
+                  data-name="Wireless Headphones" 
+                  data-price="6700" 
+                  data-image="../assets/shopassests/product-6.jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      
+    <!-- product 7 -->
+      <div class="product">
+        <div class="image-container">
+          <img src="../assets/shopassests/product-7.jpg" alt="Headphones">
+        </div>
+        <div class="product-details">
+          <div class="product-name">Wireless Headphones</div>
+          <div class="product-price">₹9,700</div>
+          <div class="stars">★★★★★</div>
+          <button class="add-to-cart" 
+                  data-id="15" 
+                  data-name="Wireless Headphones" 
+                  data-price="9700" 
+                  data-image="../assets/shopassests/product-7.jpg">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+         <!-- product 8 -->
+         <div class="product">
+            <div class="image-container">
+              <img src="../assets/shopassests/product-8.jpg" alt="Headphones">
+            </div>
+            <div class="product-details">
+              <div class="product-name">Wireless Headphones</div>
+              <div class="product-price">₹10,000</div>
+              <div class="stars">★★★★★</div>
+              <button class="add-to-cart" 
+                      data-id="16" 
+                      data-name="Wireless Headphones" 
+                      data-price="10000" 
+                      data-image="../assets/shopassests/product-7.jpg">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+    <!-- Add more products as needed -->
+  </div>
+
+
+
+   <!-- CART SIDEBAR -->
+   <div id="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-cart" id="close-cart">×</button>
+    </div>
+    <div id="cart-items"></div>
+    <div id="cart-summary">
+      <p id="cart-total">Total: ₹0</p>
+      <button id="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+
+  <!-- FLOATING CART (MOBILE) -->
+  <div class="floating-cart" id="floating-cart">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="floating-cart-count">0</span>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+        <div class="footer-columns">
+            <!-- Column 1: Help -->
+            <div class="footer-column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Payments</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Cancellation & Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Report Infringement</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 2: Support -->
+            <div class="footer-column">
+                <h3>Customer Support</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Returns Center</a></li>
+                    <li><a href="#">Buying Guide</a></li>
+                    <li><a href="#">How to Complain</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 3: Information -->
+            <div class="footer-column">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 4: Address -->
+            <div class="footer-column">
+                <h3>Our Store</h3>
+                <ul>
+                    <li>123 Shopping Street</li>
+                    <li>E-commerce City</li>
+                    <li>PIN 560001</li>
+                    <li>India</li>
+                    <li>Phone: +91 9876543210</li>
+                    <li>Email: info@example.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 YourStoreName. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+    
+
+    <script src="../javascript/app.js"></script>
+    <script src="../javascript/shop.js"></script>
+</body>
+</html>
