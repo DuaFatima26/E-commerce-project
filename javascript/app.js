@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     searchResults.innerHTML = results.map(item => 
-      `<a href="#" class="search-result">${item}</a>`
+      `<a href="" class="search-result">${item}</a>`
     ).join('');
   }
 

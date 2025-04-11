@@ -197,6 +197,8 @@
     margin: 8px 0;
   }
 
+  
+
   .add-to-cart {
     background: #4CAF50;
     color: white;
@@ -258,6 +260,36 @@
   }
   
   /* checkout */
+
+
+  #checkout-btn{
+    width: 160px;
+    height: 30px;
+    background-color: green ;
+    color: white;
+  }
+
+  #checkout-btn:hover{
+   font-weight: bolder;
+   width: 180px;
+   height: 40px;
+   cursor: pointer;
+  }
+
+  .minus{
+    height: 20px;
+    width: 40px;
+    color: white;
+    background-color: red;
+  }
+
+  .plus{
+    height: 20px;
+    width: 40px;
+    color: white;
+    background-color: green;
+  }
+
   .modal-actions {
     display: flex;
     justify-content: flex-end;
