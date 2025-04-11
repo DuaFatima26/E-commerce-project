@@ -130,5 +130,3 @@ document.addEventListener('DOMContentLoaded', function() {
   // addToCart('Blue T-Shirt');
 });
 
-
-
