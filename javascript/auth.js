@@ -1,5 +1,4 @@
-// auth.js - Firebase v8 implementation
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize Firebase Auth
     const auth = firebase.auth();
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -31,54 +30,79 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event Listeners
+    // Ensure elements exist before adding event listeners
     if (userIcon) {
+        console.log("userIcon found");
         userIcon.addEventListener("click", () => {
-            authModal.classList.add("active");
+            if (authModal) {
+                authModal.classList.add("active");
+            }
         });
+    } else {
+        console.error('userIcon not found');
     }
 
     if (closeModal) {
+        console.log("closeModal found");
         closeModal.addEventListener("click", () => {
-            authModal.classList.remove("active");
+            if (authModal) {
+                authModal.classList.remove("active");
+            }
             clearMessage();
         });
+    } else {
+        console.error('closeModal not found');
     }
 
     if (modalOverlay) {
+        console.log("modalOverlay found");
         modalOverlay.addEventListener("click", () => {
-            authModal.classList.remove("active");
+            if (authModal) {
+                authModal.classList.remove("active");
+            }
             clearMessage();
         });
+    } else {
+        console.error('modalOverlay not found');
     }
 
     // Tab Switching
     const tabs = document.querySelectorAll(".tab");
     const forms = document.querySelectorAll(".auth-form");
 
-    tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            const tabName = tab.dataset.tab;
-            
-            // Update tabs
-            tabs.forEach(t => t.classList.remove("active"));
-            tab.classList.add("active");
-            
-            // Update forms
-            forms.forEach(form => form.classList.remove("active"));
-            document.getElementById(`${tabName}Form`).classList.add("active");
-            
-            clearMessage();
+    if (tabs.length > 0 && forms.length > 0) {
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                const tabName = tab.dataset.tab;
+
+                // Update tabs
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                // Update forms
+                forms.forEach(form => form.classList.remove("active"));
+                const formToActivate = document.getElementById(`${tabName}Form`);
+                if (formToActivate) {
+                    formToActivate.classList.add("active");
+                }
+
+                clearMessage();
+            });
         });
-    });
+    } else {
+        console.error('Tabs or Forms not found');
+    }
 
     // Show Login Form
     const showLogin = document.getElementById("showLogin");
     if (showLogin) {
+        console.log("showLogin found");
         showLogin.addEventListener("click", (e) => {
             e.preventDefault();
             document.querySelector('.tab[data-tab="login"]').click();
         });
+    } else {
+        console.error('showLogin not found');
     }
 
     // Forgot Password
@@ -87,13 +111,13 @@ document.addEventListener('DOMContentLoaded', function() {
         forgotPassword.addEventListener("click", (e) => {
             e.preventDefault();
             const email = prompt("Please enter your Gmail address:");
-            
+
             if (email) {
                 if (!isGmail(email)) {
                     showMessage("Only Gmail addresses are allowed", "error");
                     return;
                 }
-                
+
                 auth.sendPasswordResetEmail(email)
                     .then(() => {
                         showMessage("Password reset email sent! Check your inbox.", "success");
@@ -107,6 +131,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
             }
         });
+    } else {
+        console.error('forgotPassword not found');
     }
 
     // Login Handler
@@ -116,12 +142,12 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const email = document.getElementById("loginEmail").value;
             const password = document.getElementById("loginPassword").value;
-            
+
             if (!isGmail(email)) {
                 showMessage("Only Gmail addresses are allowed", "error");
                 return;
             }
-            
+
             auth.signInWithEmailAndPassword(email, password)
                 .then(() => {
                     authModal.classList.remove("active");
@@ -138,6 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     showMessage(errorMessage, "error");
                 });
         });
+    } else {
+        console.error('loginBtn not found');
     }
 
     // Signup Handler
@@ -147,12 +175,12 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
-            
+
             if (!isGmail(email)) {
                 showMessage("Only Gmail addresses are allowed", "error");
                 return;
             }
-            
+
             auth.createUserWithEmailAndPassword(email, password)
                 .then(() => {
                     authModal.classList.remove("active");
@@ -169,6 +197,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     showMessage(errorMessage, "error");
                 });
         });
+    } else {
+        console.error('signupBtn not found');
     }
 
     // Google Sign-In
@@ -189,5 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     showMessage(errorMessage, "error");
                 });
         });
+    } else {
+        console.error('googleSignIn not found');
     }
 });
