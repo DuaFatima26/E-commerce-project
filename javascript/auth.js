@@ -1,199 +1,193 @@
+// auth.js - Firebase v8 implementation
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    const overlay = document.querySelector('.overlay');
-    
-    if (mobileMenuToggle && mainNav && overlay) {
-        mobileMenuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            this.classList.toggle('active');
-            overlay.classList.toggle('active');
+    // Initialize Firebase Auth
+    const auth = firebase.auth();
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    // DOM Elements
+    const userIcon = document.getElementById("userIcon");
+    const authModal = document.getElementById("authModal");
+    const closeModal = document.getElementById("closeModal");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const authMessage = document.getElementById("authMessage");
+
+    // Helper Functions
+    function isGmail(email) {
+        const re = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    function showMessage(message, type) {
+        if (authMessage) {
+            authMessage.textContent = message;
+            authMessage.className = "auth-message " + type;
+        }
+    }
+
+    function clearMessage() {
+        if (authMessage) {
+            authMessage.textContent = "";
+            authMessage.className = "auth-message";
+        }
+    }
+
+    // Event Listeners
+    if (userIcon) {
+        userIcon.addEventListener("click", () => {
+            authModal.classList.add("active");
+        });
+    }
+
+    if (closeModal) {
+        closeModal.addEventListener("click", () => {
+            authModal.classList.remove("active");
+            clearMessage();
+        });
+    }
+
+    if (modalOverlay) {
+        modalOverlay.addEventListener("click", () => {
+            authModal.classList.remove("active");
+            clearMessage();
+        });
+    }
+
+    // Tab Switching
+    const tabs = document.querySelectorAll(".tab");
+    const forms = document.querySelectorAll(".auth-form");
+
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            const tabName = tab.dataset.tab;
             
-            // Close cart if open
-            if (document.querySelector('.cart-modal').classList.contains('active')) {
-                document.querySelector('.cart-modal').classList.remove('active');
-            }
-        });
-    }
-
-    // Search Toggle
-    const searchToggle = document.querySelector('.search-toggle');
-    const searchBox = document.querySelector('.search-box');
-    
-    if (searchToggle && searchBox) {
-        searchToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            searchBox.classList.toggle('active');
-            overlay.classList.toggle('active');
+            // Update tabs
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
             
-            // Close other open elements
-            if (mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            }
-            if (document.querySelector('.cart-modal').classList.contains('active')) {
-                document.querySelector('.cart-modal').classList.remove('active');
-            }
-        });
-    }
-
-    // Cart Toggle
-    const cartToggle = document.querySelector('.cart-toggle');
-    const cartModal = document.querySelector('.cart-modal');
-    const closeCart = document.querySelector('.close-cart');
-    
-    if (cartToggle && cartModal) {
-        cartToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            cartModal.classList.toggle('active');
-            overlay.classList.toggle('active');
+            // Update forms
+            forms.forEach(form => form.classList.remove("active"));
+            document.getElementById(`${tabName}Form`).classList.add("active");
             
-            // Close other open elements
-            if (mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-            }
-            if (searchBox.classList.contains('active')) {
-                searchBox.classList.remove('active');
-            }
+            clearMessage();
         });
-    }
-
-    if (closeCart && cartModal && overlay) {
-        closeCart.addEventListener('click', function() {
-            cartModal.classList.remove('active');
-            overlay.classList.remove('active');
-        });
-    }
-
-    // Close when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.search-box') && !e.target.closest('.search-toggle')) {
-            searchBox.classList.remove('active');
-        }
-        
-        if (!e.target.closest('.cart-modal') && !e.target.closest('.cart-toggle')) {
-            cartModal.classList.remove('active');
-        }
-        
-        if (!e.target.closest('.main-nav') && !e.target.closest('.mobile-menu-toggle')) {
-            mainNav.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-        }
-        
-        // Hide overlay if nothing is open
-        if (!searchBox.classList.contains('active') && 
-            !cartModal.classList.contains('active') && 
-            !mainNav.classList.contains('active')) {
-            overlay.classList.remove('active');
-        }
     });
 
-    // Search functionality
-    const searchInput = document.querySelector('.search-box input');
-    const searchResults = document.querySelector('.search-results');
-    
-    if (searchInput && searchResults) {
-        searchInput.addEventListener('input', function() {
-            const query = this.value.trim();
+    // Show Login Form
+    const showLogin = document.getElementById("showLogin");
+    if (showLogin) {
+        showLogin.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.querySelector('.tab[data-tab="login"]').click();
+        });
+    }
+
+    // Forgot Password
+    const forgotPassword = document.getElementById("forgotPassword");
+    if (forgotPassword) {
+        forgotPassword.addEventListener("click", (e) => {
+            e.preventDefault();
+            const email = prompt("Please enter your Gmail address:");
             
-            if (query.length < 2) {
-                searchResults.innerHTML = '';
+            if (email) {
+                if (!isGmail(email)) {
+                    showMessage("Only Gmail addresses are allowed", "error");
+                    return;
+                }
+                
+                auth.sendPasswordResetEmail(email)
+                    .then(() => {
+                        showMessage("Password reset email sent! Check your inbox.", "success");
+                    })
+                    .catch(error => {
+                        let errorMessage = error.message;
+                        if (error.code === "auth/user-not-found") {
+                            errorMessage = "No account found with this Gmail";
+                        }
+                        showMessage(errorMessage, "error");
+                    });
+            }
+        });
+    }
+
+    // Login Handler
+    const loginBtn = document.getElementById("loginBtn");
+    if (loginBtn) {
+        loginBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+            
+            if (!isGmail(email)) {
+                showMessage("Only Gmail addresses are allowed", "error");
                 return;
             }
             
-            // Mock search results
-            const mockResults = [
-                'Analog Numeral',
-                'Classical Numeral',
-                'Golden Classical',
-                'Dial Numeral',
-                'Classic Roman'
-            ].filter(item => item.toLowerCase().includes(query.toLowerCase()));
-            
-            displayResults(mockResults);
+            auth.signInWithEmailAndPassword(email, password)
+                .then(() => {
+                    authModal.classList.remove("active");
+                    alert("✅ Login Successful! Welcome back to Timzee!");
+                    clearMessage();
+                })
+                .catch(error => {
+                    let errorMessage = error.message;
+                    if (error.code === "auth/user-not-found") {
+                        errorMessage = "No account found with this Gmail";
+                    } else if (error.code === "auth/wrong-password") {
+                        errorMessage = "Incorrect password";
+                    }
+                    showMessage(errorMessage, "error");
+                });
         });
-    }
-    
-    function displayResults(results) {
-        if (!searchResults) return;
-        
-        if (results.length === 0) {
-            searchResults.innerHTML = '<div class="no-results">No results found</div>';
-            return;
-        }
-        
-        searchResults.innerHTML = results.map(item => `
-            <div class="search-item">
-                <img src="https://via.placeholder.com/50" alt="${item}">
-                <div>
-                    <h4>${item}</h4>
-                    <p>₹${Math.floor(Math.random() * 5000) + 1000}</p>
-                </div>
-            </div>
-        `).join('');
     }
 
-    // Close mobile menu when clicking on links
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            mainNav.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            overlay.classList.remove('active');
-        });
-    });
-
-    // Auth Modal Toggle
-    const userIcon = document.getElementById('userIcon');
-    const authModal = document.getElementById('authModal');
-    const closeModal = document.getElementById('closeModal');
-    
-    if (userIcon && authModal) {
-        userIcon.addEventListener('click', function(e) {
-            e.stopPropagation();
-            authModal.classList.toggle('active');
-            overlay.classList.toggle('active');
-        });
-    }
-    
-    if (closeModal && authModal && overlay) {
-        closeModal.addEventListener('click', function() {
-            authModal.classList.remove('active');
-            overlay.classList.remove('active');
-        });
-    }
-    
-    // Tab Switching in Auth Modal
-    const tabs = document.querySelectorAll('.auth-tabs .tab');
-    
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Remove active class from all tabs and forms
-            tabs.forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.auth-form').forEach(form => {
-                form.classList.remove('active');
-            });
-            
-            // Add active class to clicked tab and corresponding form
-            this.classList.add('active');
-            const tabName = this.getAttribute('data-tab');
-            document.getElementById(tabName + 'Form').classList.add('active');
-        });
-    });
-    
-    // Show login form when clicking "Already have an account"
-    const showLogin = document.getElementById('showLogin');
-    if (showLogin) {
-        showLogin.addEventListener('click', function(e) {
+    // Signup Handler
+    const signupBtn = document.getElementById("signupBtn");
+    if (signupBtn) {
+        signupBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            tabs.forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.auth-form').forEach(form => {
-                form.classList.remove('active');
-            });
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
             
-            document.querySelector('.tab[data-tab="login"]').classList.add('active');
-            document.getElementById('loginForm').classList.add('active');
+            if (!isGmail(email)) {
+                showMessage("Only Gmail addresses are allowed", "error");
+                return;
+            }
+            
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                    authModal.classList.remove("active");
+                    alert("🎉 Account Created Successfully! Welcome to Timzee!");
+                    clearMessage();
+                })
+                .catch(error => {
+                    let errorMessage = error.message;
+                    if (error.code === "auth/email-already-in-use") {
+                        errorMessage = "This Gmail is already registered";
+                    } else if (error.code === "auth/weak-password") {
+                        errorMessage = "Password should be at least 6 characters";
+                    }
+                    showMessage(errorMessage, "error");
+                });
+        });
+    }
+
+    // Google Sign-In
+    const googleSignIn = document.getElementById("googleSignIn");
+    if (googleSignIn) {
+        googleSignIn.addEventListener("click", (e) => {
+            e.preventDefault();
+            auth.signInWithPopup(provider)
+                .then(() => {
+                    authModal.classList.remove("active");
+                    clearMessage();
+                })
+                .catch(error => {
+                    let errorMessage = error.message;
+                    if (error.code === "auth/popup-closed-by-user") {
+                        errorMessage = "Sign in process was cancelled";
+                    }
+                    showMessage(errorMessage, "error");
+                });
         });
     }
 });
