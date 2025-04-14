@@ -3,72 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Shop Now</title>
 
-<!-- custom stylesheet link  -->
-<link rel="stylesheet" href="../css/shop.css">
-<link rel="stylesheet" href="../css/navbar.css">
-<link rel="stylesheet" href="../css/footer.css">
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/auth.css">
 
-<!-- Font awesome cdn  -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- google font -->
-<style>
-   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Special+Gothic+Expanded+One&display=swap');
-</style>
-
+    <!-- Google Font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Special+Gothic+Expanded+One&display=swap');
+    </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="navbar-container">
-            <!-- Mobile Toggle -->
-            <button class="mobile-menu-toggle">
-                <span class="hamburger"></span>
-            </button>
+  <header class="navbar">
+    <div class="navbar-container">
+        <!-- Mobile Toggle -->
+        <button class="mobile-menu-toggle">
+            <span class="hamburger"></span>
+        </button>
 
-            <!-- Logo -->
-            <div class="logo">
-                <a href=""><img src="../assets/logo_1.webp" alt=""></a>
-            </div>
-
-            <!-- Main Nav -->
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="#">Shop </a></li>
-                    <li><a href="../index.html#slidetoaboutus">About</a></li>
-                    <li><a href="../index.html#contactme">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- Icons -->
-            <div class="nav-icons">
-                <!-- Search -->
-                <div class="search-container">
-                    <button class="search-toggle"><i class="fas fa-search"></i></button>
-                    <div class="search-box">
-                        <input type="text" placeholder="Search...">
-                        <div class="search-results"></div>
-                    </div>
-                </div>
-
-                <!-- Profile -->
-                <a href="#" class="profile-icon"><i class="fas fa-user"></i></a>
- 
-                <!-- cart  -->
-                <div class="nav-cart" id="nav-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="nav-cart-count">0</span>
-                  </div>
-
-            </div>
+        <!-- Logo -->
+        <div class="logo">
+            <a href=""><img src="../assets/logo_1.webp" alt="Logo"></a>
         </div>
-    </header>
 
-    <!-- heroooooooo section -->
+        <!-- Main Nav -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="">Shop</a></li>
+                <li><a href="../index.html#slidetoaboutus">About Us</a></li>
+                <li><a href="../index.html#contactme">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- Icons -->
+        <div class="nav-icons">
+            <!-- Search -->
+            <div class="search-container">
+                <button class="search-toggle"><i class="fas fa-search"></i></button>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+
+            <!-- Profile -->
+            <div class="profile-icon" id="userIcon">
+                <i class="fas fa-user"></i>
+            </div>
+          
+
+            <!-- Cart -->
+            <div class="nav-cart" id="nav-cart">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="nav-cart-count">0</span>
+            </div>
+
+            
+              </div>
+        </div>
+    </div>
+</header>
+
+<!-- heroooooooo section -->
 <section class="hero-section">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -85,7 +89,7 @@
 
  <h2 class="mens-heading" id="product_scroll"><span>M</span>ENS COLLECTION</h2>  
  <!-- PRODUCTS -->
- <div class="products">
+<div class="products">
     <!-- Product 1 -->
     <div class="product">
       <div class="image-container">
@@ -141,11 +145,10 @@
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-      
-    <!-- product 4 -->
-      <div class="product">
+    <!--product 4 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product 4.jpg" alt="Headphones">
         </div>
@@ -161,11 +164,10 @@
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-      
     <!-- product 5 -->
-      <div class="product">
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-5.jpg" alt="Headphones">
         </div>
@@ -181,11 +183,11 @@
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
       
     <!-- product 6 -->
-      <div class="product">
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-6.jpg" alt="Headphones">
         </div>
@@ -201,9 +203,10 @@
             Add to Cart
           </button>
         </div>
-      </div>
-
-      <div class="product">
+    </div>
+       
+    <!-- product 7 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-21.jpg" alt="Headphones">
         </div>
@@ -212,16 +215,17 @@
           <div class="product-price">₹3,000</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="12" 
+                  data-id="7" 
                   data-name="Numeral Automatic" 
                   data-price="3000" 
                   data-image="../assets/shopassests/product-21.jpg">
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-      <div class="product">
+    <!-- product 8 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-22.webp" alt="Headphones">
         </div>
@@ -230,16 +234,17 @@
           <div class="product-price">₹3,000</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="12" 
+                  data-id="8" 
                   data-name="Golden Classical" 
                   data-price="3000" 
                   data-image="../assets/shopassests/product-22.webp">
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-      <div class="product">
+    <!-- product 9 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-23.jpg" alt="Headphones">
         </div>
@@ -248,16 +253,17 @@
           <div class="product-price">₹3,000</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="12" 
+                  data-id="9" 
                   data-name="Black Numeral" 
                   data-price="3000" 
                   data-image="../assets/shopassests/product-23.jpg">
             Add to Cart
           </button>
         </div>
-      </div>
-
-      <div class="product">
+    </div>
+  
+    <!-- product 10 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-24.jpg" alt="Headphones">
         </div>
@@ -266,19 +272,17 @@
           <div class="product-price">₹3,000</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="12" 
+                  data-id="10" 
                   data-name="Rolex Analog" 
                   data-price="3000" 
                   data-image="../assets/shopassests/product-24.jpg">
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-
-      
-    <!-- product 7 -->
-      <div class="product">
+    <!-- product 11 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-7.jpg" alt="Headphones">
         </div>
@@ -287,17 +291,17 @@
           <div class="product-price">₹9,700</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="7" 
+                  data-id="11" 
                   data-name="Dial Numeral" 
                   data-price="9700" 
                   data-image="../assets/shopassests/product-7.jpg">
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-         <!-- product 8 -->
-         <div class="product">
+    <!-- product 12 -->
+    <div class="product">
             <div class="image-container">
               <img src="../assets/shopassests/product-8.jpg" alt="Headphones">
             </div>
@@ -306,23 +310,26 @@
               <div class="product-price">₹10,000</div>
               <div class="stars">★★★★★</div>
               <button class="add-to-cart" 
-                      data-id="8" 
+                      data-id="12" 
                       data-name="Analog Numeral" 
                       data-price="10000" 
                       data-image="../assets/shopassests/product-7.jpg">
                 Add to Cart
               </button>
             </div>
-        </div>
-  </div>
+    </div>
+
+</div>
 
   <!-- MENS COLLECTION COMPLETED HERE -->
 
   <!-- WOMENS SECTION -->
 
   <h2 class="mens-heading"><span>w</span>OMENS COLLECTION</h2>  
+
   <div class="products">
-    <!-- Product 1 -->
+
+    <!-- Product 13 -->
     <div class="product">
       <div class="image-container">
         <img src="../assets/shopassests/product-9.jpg" alt="Smartphone">
@@ -332,7 +339,7 @@
         <div class="product-price">₹15,999</div>
         <div class="stars">★★★★★</div>
         <button class="add-to-cart" 
-                data-id="9" 
+                data-id="13" 
                 data-name="Analog Numeral" 
                 data-price="15999" 
                 data-image="../assets/shopassests/product-9.jpg">
@@ -341,7 +348,7 @@
       </div>
     </div>
 
-    <!-- Product 2 -->
+    <!-- Product 14 -->
     <div class="product">
       <div class="image-container">
         <img src="../assets/shopassests/product-10.jpg" alt="Headphones">
@@ -351,7 +358,7 @@
         <div class="product-price">₹2,499</div>
         <div class="stars">★★★★★</div>
         <button class="add-to-cart" 
-                data-id="10" 
+                data-id="14" 
                 data-name="Classical Numeral" 
                 data-price="2499" 
                 data-image="../assets/shopassests/product-10.jpg">
@@ -360,7 +367,7 @@
       </div>
     </div>
 
-    <!-- product 3 -->
+    <!-- product 15 -->
     <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/prodcut-11.jpg" alt="Headphones">
@@ -370,18 +377,18 @@
           <div class="product-price">₹2,299</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="11" 
+                  data-id="15" 
                   data-name="Classical Analog" 
                   data-price="2299" 
                   data-image="../assets/shopassests/prodcut-11.jpg">
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
       
-    <!-- product 4 -->
-      <div class="product">
+    <!-- product 16 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-12.webp" alt="Headphones">
         </div>
@@ -390,19 +397,17 @@
           <div class="product-price">₹3,000</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="12" 
+                  data-id="16" 
                   data-name="Numeral Automatic" 
                   data-price="3000" 
                   data-image="../assets/shopassests/product-12.webp">
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-
-      
-    <!-- product 5 -->
-      <div class="product">
+    <!-- product 17 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-13.jpg" alt="Headphones">
         </div>
@@ -411,18 +416,17 @@
           <div class="product-price">₹22,00</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="13" 
+                  data-id="17" 
                   data-name="Golden Classical" 
                   data-price="2200" 
                   data-image="../assets/shopassests/product-13.jpg">
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-      
-    <!-- product 6 -->
-      <div class="product">
+    <!-- product 18 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-14.jpg" alt="Headphones">
         </div>
@@ -431,18 +435,17 @@
           <div class="product-price">₹6,700</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="14" 
+                  data-id="18" 
                   data-name="Classic Roamn" 
                   data-price="6700" 
                   data-image="../assets/shopassests/product-14.jpg">
             Add to Cart
           </button>
         </div>
-      </div>
-
+    </div>
       
-    <!-- product 7 -->
-      <div class="product">
+    <!--product 19 -->
+    <div class="product">
         <div class="image-container">
           <img src="../assets/shopassests/product-15.jpg" alt="Headphones">
         </div>
@@ -451,16 +454,16 @@
           <div class="product-price">₹9,700</div>
           <div class="stars">★★★★★</div>
           <button class="add-to-cart" 
-                  data-id="15" 
+                  data-id="19" 
                   data-name="Analog Numeral" 
                   data-price="9700" 
                   data-image="../assets/shopassests/product-15.jpg">
             Add to Cart
           </button>
         </div>
-      </div>
+    </div>
 
-         <!-- product 8 -->
+    <!-- product 20 -->
     <div class="product">
             <div class="image-container">
               <img src="../assets/shopassests/product-16.jpg" alt="Headphones">
@@ -470,16 +473,16 @@
               <div class="product-price">₹10,000</div>
               <div class="stars">★★★★★</div>
               <button class="add-to-cart" 
-                      data-id="16" 
+                      data-id="20" 
                       data-name="Numeral Automatic" 
                       data-price="10000" 
                       data-image="../assets/shopassests/product-16.jpg">
                 Add to Cart
               </button>
             </div>
-          </div>
+    </div>
     
-          <!-- product -9 -->
+    <!-- product -21 -->
     <div class="product">
       <div class="image-container">
         <img src="../assets/shopassests/product-17.jpg" alt="Headphones">
@@ -489,16 +492,17 @@
         <div class="product-price">₹10,000</div>
         <div class="stars">★★★★★</div>
         <button class="add-to-cart" 
-                data-id="16" 
+                data-id="21" 
                 data-name="Platinum Numeral" 
                 data-price="10000" 
                 data-image="../assets/shopassests/product-17.jpg">
           Add to Cart
         </button>
       </div>
-   </div>
+    </div>
 
-   <div class="product">
+    <!-- product 22 -->
+    <div class="product">
     <div class="image-container">
       <img src="../assets/shopassests/product-18.jpg" alt="Headphones">
     </div>
@@ -507,16 +511,17 @@
       <div class="product-price">₹10,000</div>
       <div class="stars">★★★★★</div>
       <button class="add-to-cart" 
-              data-id="16" 
+              data-id="22" 
               data-name="Classical Watch" 
               data-price="10000" 
               data-image="../assets/shopassests/product-18.jpg">
         Add to Cart
       </button>
     </div>
- </div>
+    </div>
 
- <div class="product">
+    <!-- product 23 -->
+    <div class="product">
   <div class="image-container">
     <img src="../assets/shopassests/product-19.jpg" alt="Headphones">
   </div>
@@ -525,17 +530,17 @@
     <div class="product-price">₹10,000</div>
     <div class="stars">★★★★★</div>
     <button class="add-to-cart" 
-            data-id="16" 
+            data-id="23" 
             data-name="Analog Platinum" 
             data-price="10000" 
             data-image="../assets/shopassests/product-19.jpg">
       Add to Cart
     </button>
   </div>
-</div>
+    </div>
 
-
-<div class="product">
+    <!-- product 24 -->
+    <div class="product">
   <div class="image-container">
     <img src="../assets/shopassests/product-20.jpg" alt="Headphones">
   </div>
@@ -551,30 +556,13 @@
       Add to Cart
     </button>
   </div>
-</div>
-
-
-
- 
-
-   
-
-
+    </div>
 
 </div>
 
-
-
    
-   
-   
-   
-   
-   
-   
-   
-         <!-- CART SIDEBAR -->
-   <div id="cart-sidebar">
+<!-- CART SIDEBAR  -->
+ <div id="cart-sidebar">
     <div class="cart-header">
       <h2>Your Cart</h2>
       <button class="close-cart" id="close-cart">×</button>
@@ -584,7 +572,7 @@
       <p id="cart-total">Total: ₹0</p>
       <button id="checkout-btn">Proceed to Checkout</button>
     </div>
-  </div>
+</div>
 
 
   <!-- FLOATING CART (MOBILE) -->
@@ -653,7 +641,9 @@
 </footer>
     
 
-    <script src="../javascript/app.js"></script>
-    <script src="../javascript/shop.js"></script>
+<script src="../javascript/app.js"></script>
+<script src="../javascript/shop.js"></script>
+    
+</script>
 </body>
 </html>

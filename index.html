@@ -5,53 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timzee.com</title>
 
- <!-- custom stylesheet link  -->
-<link rel="stylesheet" href="./css/navbar.css">
-<link rel="stylesheet" href="./css/home.css">
-<link rel="stylesheet" href="./css/shop.css">
-<link rel="stylesheet" href="./css/contact.css">
-<link rel="stylesheet" href="./css/footer.css">
-<link rel="stylesheet" href="./css/auth.css">
+   
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+   
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCp0pSPYWzxja61YMtckLI8R0jRyX5Yv4",
+            authDomain: "login-signup-c718e.firebaseapp.com",
+            projectId: "login-signup-c718e",
+            storageBucket: "login-signup-c718e.appspot.com",
+            messagingSenderId: "533132222329",
+            appId: "1:533132222329:web:af17307388689e6be299a8"
+        };
+      
+        
+        firebase.initializeApp(firebaseConfig);
+    </script>
 
- <!-- Font awesome cdn  -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/shop.css">
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/auth.css">
 
-<!-- google font -->
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Special+Gothic+Expanded+One&display=swap');
- </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- bootstrap link -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- Google Font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Special+Gothic+Expanded+One&display=swap');
+    </style>
 
-
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- navbar -->
     <header class="navbar">
         <div class="navbar-container">
             <!-- Mobile Toggle -->
             <button class="mobile-menu-toggle">
                 <span class="hamburger"></span>
             </button>
-
+    
             <!-- Logo -->
             <div class="logo">
-                <a href=""><img src="./assets/home assets/logo_1.webp" alt=""></a>
+                <a href=""><img src="./assets/home assets/logo_1.webp" alt="Logo"></a>
             </div>
-
+    
             <!-- Main Nav -->
             <nav class="main-nav">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="./html/shop.html">Shop </a></li>
+                    <li><a href="./html/shop.html">Shop</a></li>
                     <li><a href="#slidetoaboutus">About Us</a></li>
                     <li><a href="#contactme">Contact Us</a></li>
                 </ul>
             </nav>
-
+    
             <!-- Icons -->
             <div class="nav-icons">
                 <!-- Search -->
@@ -62,23 +78,125 @@
                         <div class="search-results"></div>
                     </div>
                 </div>
-
+    
                 <!-- Profile -->
-                <a href="#" class="profile-icon"><i class="fas fa-user"></i></a>
-        
-
+                <div class="profile-icon" id="userIcon">
+                    <i class="fas fa-user"></i>
+                </div>
+                
+                <!-- Auth Modal -->
+                <div id="authModal" class="auth-modal">
+                    <div class="modal-overlay" id="modalOverlay"></div>
+                    <div class="modal-container">
+                        <button class="close-btn" id="closeModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        
+                        <div class="auth-tabs">
+                            <button class="tab active" data-tab="login">Login</button>
+                            <button class="tab" data-tab="signup">Create Account</button>
+                        </div>
+                        
+                        <div class="auth-content">
+                            <div class="auth-form active" id="loginForm">
+                                <div class="form-group">
+                                    <input type="email" id="loginEmail" class="form-input" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="loginPassword" class="form-input" placeholder="Password" required>
+                                </div>
+                                <button id="loginBtn" class="btn1 btn-primary loginbtn">Login</button>
+                                <div class="form-footer">
+                                    <a href="#" id="forgotPassword" class="text-link">Forgot password?</a>
+                                </div>
+                                <button id="googleSignIn" class="btn1 btn-google">
+                                    <i class="fab fa-google"></i>
+                                    Continue with Google
+                                </button>
+                            </div>
+                            
+                            <div class="auth-form" id="signupForm">
+                                <div class="form-group">
+                                    <input type="email" id="email" class="form-input" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="password" class="form-input" placeholder="Password" required>
+                                </div>
+                                <button id="signupBtn" class="btn1 btn-primary createaccount">Create Account</button>
+                                <div class="form-footer">
+                                    <span class="Already">Already have an account? </span>
+                                    <a href="#" class="text-link" id="showLogin">Login</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="authMessage" class="auth-message"></div>
+                    </div>
+                </div>
+    
                 <!-- Cart -->
                 <div class="cart-container">
                     <button class="cart-toggle">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
                     </button>
-
                 </div>
             </div>
         </div>
     </header>
+    
+    <!-- Overlay -->
+    <div class="overlay"></div>
+    
+    <!-- Cart Modal -->
+    <div class="cart-modal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <div class="empty-cart">Your cart is empty</div>
+        </div>
+        <div class="cart-summary">
+            <p class="cart-total">Total: ₹0</p>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    
     <!-- navbar completed -->
+
+     <!-- Sale Modal -->
+     <div class="sale-modal" id="saleModal">
+        <div class="modal-content1">
+            <span class="discount-badge">70% OFF</span>
+            <button class="close-modal" id="closesaleModal">×</button>
+            <h2>SALE IS LIVE NOW!</h2>
+            <p>Limited time offer! Don't miss this amazing opportunity.</p>
+            
+            <div class="sale-timer">
+                <div class="timer-box">
+                    <span id="days">06</span>
+                    <span>Days</span>
+                </div>
+                <div class="timer-box">
+                    <span id="hours">10</span>
+                    <span>Hours</span>
+                </div>
+                <div class="timer-box">
+                    <span id="minutes">50</span>
+                    <span>Minutes</span>
+                </div>
+                <div class="timer-box">
+                    <span id="seconds">00</span>
+                    <span>Seconds</span>
+                </div>
+            </div>
+            
+            <button class="shop-now-btn" id="shopNow">SHOP NOW</button>
+        </div>
+    </div>
+
+    <!-- salee modal completed -->
 
     <!-- slider hero section  -->
     <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
@@ -334,7 +452,7 @@
     <div class="mt-5">
         <h2 class="section-titleC">Find Us on Map</h2>
         <div class="map-container">
-            <!-- Embedded Google Map -->
+            <!--  Google Map -->
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.490187415006!2d67.02885931500078!3d24.81472288407989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33c5365ff841f%3A0x27a8d4c5c7d7f8e5!2sTech%20Zone%20Karachi!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
@@ -401,21 +519,27 @@
     </div>
 </footer>
 
-         
-
-     <!-- custom js link -->
-    <script src="./javascript/app.js"></script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- boootstrap js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
+  
+    <script src="./javascript/app.js"></script>
+    <script src="./javascript/auth.js"></script>
+    <script src="./javascript/modal.js"></script>
 
-        
-<!-- Bootstrap JS Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded');
+            if (typeof firebase !== 'undefined') {
+                console.log('Firebase loaded successfully');
+                console.log('Firebase auth:', firebase.auth());
+            } else {
+                console.error('Firebase not loaded!');
+            }
+            
+            console.log('Mobile menu toggle exists:', !!document.querySelector('.mobile-menu-toggle'));
+            console.log('Auth modal exists:', !!document.getElementById('authModal'));
+        });
+    </script>
 </body>
 </html>
-
-
