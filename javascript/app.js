@@ -1,146 +1,91 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Mobile Menu Toggle
-  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
-  const overlay = document.querySelector('.overlay');
-  
-  if (mobileMenuToggle && mobileNav && overlay) {
-      mobileMenuToggle.addEventListener('click', function() {
-          this.classList.toggle('active');
-          mobileNav.classList.toggle('open');
-          overlay.classList.toggle('active');
-          
-          // Close cart if open
-          if (document.querySelector('.cart-modal').classList.contains('active')) {
-              document.querySelector('.cart-modal').classList.remove('active');
-          }
-      });
+document.addEventListener("DOMContentLoaded", () => {
+  // ======= Mobile Nav =======
+  const menuToggle = document.querySelector(".mobile-menu-toggle");
+  const nav = document.querySelector(".main-nav");
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
   }
 
-  // Search Toggle
-  const searchToggle = document.querySelector('.search-toggle');
-  const searchBox = document.querySelector('.search-box');
-  
-  if (searchToggle && searchBox) {
-      searchToggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          searchBox.classList.toggle('active');
-          overlay.classList.toggle('active');
-          
-          // Close other open elements
-          if (mobileNav.classList.contains('open')) {
-              mobileNav.classList.remove('open');
-              mobileMenuToggle.classList.remove('active');
-          }
-          if (document.querySelector('.cart-modal').classList.contains('active')) {
-              document.querySelector('.cart-modal').classList.remove('active');
-          }
-      });
+  // ======= Search Toggle =======
+  const searchToggle = document.querySelector(".search-toggle");
+  const searchBox = document.querySelector(".search-box");
+  const overlay = document.querySelector(".overlay");
+
+  if (searchToggle && searchBox && overlay) {
+    searchToggle.addEventListener("click", () => {
+      searchBox.classList.toggle("active");
+      overlay.classList.toggle("active");
+    });
+
+    overlay.addEventListener("click", () => {
+      searchBox.classList.remove("active");
+      overlay.classList.remove("active");
+      cartModal.classList.remove("active");
+    });
   }
 
-  // Cart Toggle
-  const cartToggle = document.querySelector('.cart-toggle');
-  const cartModal = document.querySelector('.cart-modal');
-  const closeCart = document.querySelector('.close-cart');
-  
-  if (cartToggle && cartModal) {
-      cartToggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          cartModal.classList.toggle('active');
-          overlay.classList.toggle('active');
-          
-          // Close other open elements
-          if (mobileNav.classList.contains('open')) {
-              mobileNav.classList.remove('open');
-              mobileMenuToggle.classList.remove('active');
-          }
-          if (searchBox.classList.contains('active')) {
-              searchBox.classList.remove('active');
-          }
-      });
+  // ======= Cart Modal =======
+  const cartToggle = document.querySelector(".cart-toggle");
+  const cartModal = document.querySelector(".cart-modal");
+  const closeCart = document.querySelector(".close-cart");
+
+  if (cartToggle && cartModal && closeCart) {
+    cartToggle.addEventListener("click", () => {
+      cartModal.classList.add("active");
+      overlay.classList.add("active");
+    });
+
+    closeCart.addEventListener("click", () => {
+      cartModal.classList.remove("active");
+      overlay.classList.remove("active");
+    });
   }
 
-  if (closeCart && cartModal && overlay) {
-      closeCart.addEventListener('click', function() {
-          cartModal.classList.remove('active');
-          overlay.classList.remove('active');
-      });
+
+  const userIcon = document.getElementById("userIcon");
+  const authModal = document.getElementById("authModal");
+  const closeModal = document.getElementById("closeModal");
+  const modalOverlay = document.getElementById("modalOverlay");
+
+  if (userIcon && authModal && closeModal && modalOverlay) {
+    userIcon.addEventListener("click", () => {
+      authModal.classList.add("active");
+    });
+
+    closeModal.addEventListener("click", () => {
+      authModal.classList.remove("active");
+    });
+
+    modalOverlay.addEventListener("click", () => {
+      authModal.classList.remove("active");
+    });
   }
 
-  // Close when clicking outside
-  document.addEventListener('click', function(e) {
-      if (!e.target.closest('.search-box') && !e.target.closest('.search-toggle')) {
-          searchBox.classList.remove('active');
-      }
-      
-      if (!e.target.closest('.cart-modal') && !e.target.closest('.cart-toggle')) {
-          cartModal.classList.remove('active');
-      }
-      
-      if (!e.target.closest('.mobile-nav') && !e.target.closest('.mobile-menu-toggle')) {
-          mobileNav.classList.remove('open');
-          mobileMenuToggle.classList.remove('active');
-      }
-      
-      // Hide overlay if nothing is open
-      if (!searchBox.classList.contains('active') && 
-          !cartModal.classList.contains('active') && 
-          !mobileNav.classList.contains('open')) {
-          overlay.classList.remove('active');
-      }
+  const tabs = document.querySelectorAll(".tab");
+  const forms = document.querySelectorAll(".auth-form");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      const target = tab.getAttribute("data-tab");
+      forms.forEach((form) => {
+        form.classList.remove("active");
+      });
+
+      document.getElementById(`${target}Form`).classList.add("active");
+    });
   });
 
-  // Search functionality
-  const searchInput = document.querySelector('.search-box input');
-  const searchResults = document.querySelector('.search-results');
-  
-  if (searchInput && searchResults) {
-      searchInput.addEventListener('input', function() {
-          const query = this.value.trim();
-          
-          if (query.length < 2) {
-              searchResults.innerHTML = '';
-              return;
-          }
-          
-          // Mock search results
-          const mockResults = [
-              'Analog Numeral',
-              'Classical Numeral',
-              'Golden Classical',
-              'Dial Numeral',
-              'Classic Roman'
-          ].filter(item => item.toLowerCase().includes(query.toLowerCase()));
-          
-          displayResults(mockResults);
-      });
+  const showLogin = document.getElementById("showLogin");
+  if (showLogin) {
+    showLogin.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(".tab[data-tab='login']").click();
+    });
   }
-  
-  function displayResults(results) {
-      if (!searchResults) return;
-      
-      if (results.length === 0) {
-          searchResults.innerHTML = '<div class="no-results">No results found</div>';
-          return;
-      }
-      
-      searchResults.innerHTML = results.map(item => `
-          <div class="search-item">
-              <img src="https://via.placeholder.com/50" alt="${item}">
-              <div>
-                  <h4>${item}</h4>
-                  <p>₹${Math.floor(Math.random() * 5000) + 1000}</p>
-              </div>
-          </div>
-      `).join('');
-  }
-
-  // Close mobile menu when clicking on links
-  document.querySelectorAll('.mobile-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-          mobileNav.classList.remove('open');
-          mobileMenuToggle.classList.remove('active');
-          overlay.classList.remove('active');
-      });
-  });
 });
